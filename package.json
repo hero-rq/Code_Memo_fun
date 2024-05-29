@@ -1,0 +1,29 @@
+{
+  "name": "code-memo-app",
+  "version": "1.0.0",
+  "description": "A simple code memo app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "com.example.codememoapp",
+    "win": {
+      "target": "nsis",
+      "icon": "icon.ico"
+    },
+    "extraResources": [
+      {
+        "from": "node_modules/7zip-bin",
+        "to": "7zip-bin",
+        "filter": ["**/*"]
+      }
+    ]
+  },
+  "devDependencies": {
+    "electron": "^latest",
+    "electron-builder": "^latest"
+  },
+  "dependencies": {}
+}
