@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Code_Handwriting_App</title>
+    <style>
+      body {
+        font-family: 'Courier New', monospace;
+        background-color: #000000;
+        color: #00FF00;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+      h1 {
+        margin: 20px;
+        color: #00FF00;
+        text-align: center;
+      }
+      #editor {
+        flex-grow: 1;
+        width: 100%;
+        border: none;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: #000000;
+        color: #00FF00;
+        font-family: 'Courier New', monospace;
+        font-size: 18px;
+        resize: none;
+        spellcheck: false;
+      }
+      #editor:focus {
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Code Memo App</h1>
+    <textarea id="editor" placeholder="Write your code here..."></textarea>
+    <script>
+      document.getElementById('editor').addEventListener('keydown', function(e) {
+        if (e.key === 'Tab') {
+          e.preventDefault();
+          const start = this.selectionStart;
+          const end = this.selectionEnd;
+
+          this.value = this.value.substring(0, start) + '   ' + this.value.substring(end);
+
+          this.selectionStart = this.selectionEnd = start + 3;
+        }
+      });
+    </script>
+  </body>
+</html>
